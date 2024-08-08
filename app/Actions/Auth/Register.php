@@ -1,19 +1,23 @@
 <?php
+
 namespace App\Actions\Auth;
 
 use App\Http\Requests\RegisterRequest;
 use App\Models\User;
 use Illuminate\Support\Facades\Hash;
 
-class Register {
+class Register
+{
     public static $action_name = "register";
     private $request = null;
 
-    public function __construct(RegisterRequest $request) {
+    public function __construct(RegisterRequest $request)
+    {
         $this->request = $request;
     }
 
-    public function handle(){
+    public function handle()
+    {
 
         $user = User::create([
             'name' => $this->request->name,
@@ -22,7 +26,7 @@ class Register {
         ]);
 
         return response()->json([
-            'success' => 'true',
+            'success' => true,
             'message' => 'User registered successfully',
             'user' => $user
         ]);

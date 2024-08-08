@@ -19,7 +19,7 @@ class Logout {
              ->delete();
 
         return response()->json([
-            'success' => 'true',
+            'success' => true,
             'message' => 'Logged out successfully',
         ]);
     }
